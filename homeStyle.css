@@ -371,3 +371,7 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: gray;
 }
+
+footer {
+	height: 50px;
+}
