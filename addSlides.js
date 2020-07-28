@@ -5,7 +5,7 @@ window.addSlides = function(imgs) {
 
 	for (var n = 0; n < images.length; n++) {
 		if (images[n].link == "none") {
-			elements = elements + "<div class=\"slide fade\"><img src=\"" + images[n].source + "\"></div>";
+			elements = elements + "<div class=\"slide fade\"><a href=\"" + images[n].source + "\" target=\"_blank\"><img src=\"" + images[n].source + "\"></a></div>";
 		}
 		else {
 			elements = elements + "<div class=\"slide fade\"><a href=\"" + images[n].link + "\"><img src=\"" + images[n].source + "\"></a></div>";
@@ -17,16 +17,19 @@ window.addSlides = function(imgs) {
 			captions = captions + "<span class=\"caption fade\">" + images[n].caption + "</span>";
 		}
 
-		//var element = document.createElement("div");
+		var element = document.createElement("div");
 		circles = circles + "<span class=\"dot\" onclick=\"showSlide(" + n + ")\">&#9679</span>";
 	}
 
-	elements = elements + "<div id=\"galleryBar\"><span id=\"controlButtons\"><i class=\"fa fa-pause\"></i></span><span id=\"slideNav\"></span></div>";
+	elements = elements + "<div id=\"galleryBar\"><span id=\"slideNav\"></span></div>";
+
+
+	//elements = elements + "<div id=\"galleryBar\"><span id=\"controlButtons\"><i class=\"fa fa-pause\"></i></span><span id=\"slideNav\"></span></div>";
 
 	document.getElementById("galleryImages").innerHTML = elements;
 	document.getElementById("slideNav").innerHTML = circles;
 	document.getElementById("slideCaption").innerHTML = captions;
-	//document.getElementById("slideArrows").innerHTML = "<a id=\"prevSlide\" onclick=\"plusSlide(-1)\">&#10094;</a><a id=\"nextSlide\" onclick=\"plusSlide(1)\">&#10095;</a>";
+	document.getElementById("slideArrows").innerHTML = "<a id=\"prevSlide\" onclick=\"prevSlide()\">&#10094;</a><a id=\"nextSlide\" onclick=\"nextSlide()\">&#10095;</a>";
 
 	return [elements, circles, captions];
 };
