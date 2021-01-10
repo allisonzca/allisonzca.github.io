@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Inter:wght@400;700&family=Roboto&display=swap');
+
+:root {
+	--primary: #424242;
+	--lighterPrimary: #6D6D6D;
+	/*
+	--darkerPrimary: #1B1B1B;*/
+	--darkerPrimary: black;
+
+	--secondary: #7C4DFF;
+	--darkerSecondary: #3F1DCB;
+	--lighterSecondary: #B47CFF;
+	--lightestSecondary: #e4d0ff;
+}
+
+
+.selectedFilter {
+	color: var(--secondary);
+	transition: 0.3s;
+}
+
+.hiding {
+	display: none;
+	transition: max-height 0.2s ease-out;
+	opacity: 0;
+}
+
+.droppedDown {
+	transform: rotate(90deg);
+}
+
+.selected {
+	color: var(--secondary);
+}
+
+body {
+	display: grid;
+	grid-template-columns: minmax(200px, 25%) minmax(auto, 75%);
+	grid-gap: 0px;
+	max-width: 1920px;
+	justify-content: center;
+}
+
+
+
+#sidebar {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	margin: 0px;
+}
+
+#sidebarContainer {
+	width: 90%;
+	margin: 20px 0px;
+	margin-left: auto;
+}
+
+main {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	margin: 20px;
+}
+
+h1, h2, h3 {
+	margin: 0px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0px;
+}
+
+
+#icon {
+	width: 87px;
+}
+
+/* name, the line under */
+.name,  #summary {
+	font-family: 'Inconsolata', monospace, sans-serif;
+	color: var(--primary);
+	font-weight: normal;
+}
+
+.name {
+	font-size: 24px;
+}
+
+#summary {
+	font-size: 18px;
+}
+
+#socials li, .tagBox li {
+	display: inline-block;
+}
+
+#socials li {
+	width: 15%;
+}
+
+#socials img {
+	height: 20px;
+}
+
+/* the big links in the side + the title which says what tag is selected */
+h1 {
+	font-family: 'Inter', sans-serif;
+	font-weight: bold;
+	font-size: 36px;
+	margin: 0px;
+	
+}
+
+#intro {
+	margin: 20px 0px; 
+}
+
+#intro h2 {
+	margin: 5px 0px;
+}
+
+#categoryFilters h1 {
+	padding: 5px 0px;
+	cursor: pointer;
+	transition: 0.33s;
+	color: var(--darkerPrimary);
+}
+
+span.sortDrop {
+	cursor: pointer;
+	transition: opacity 0.33s;
+}
+
+span.drop {
+	cursor: pointer;
+    font-family: 'Inconsolata';
+    font-size: 28px;
+    padding: 0px 10px;
+    transition: transform 0.33s;
+    display: inline-block;
+}
+
+/* subtags that show up when u click the drop down*/
+.subfilters {
+	font-family: 'Inter', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: var(--darkerPrimary);
+	cursor: pointer;
+	margin-left: 35px;
+}
+
+.subfilters li:hover,  span.category:hover {
+	color: var(--secondary);
+	transition: 0.33s;
+}
+
+span.drop:hover {
+	color: var(--secondary);
+	/*transform: rotate(90deg);*/
+	transition: 0.33s;
+}
+
+body {
+	margin-top: 0px;
+	font-family: 'Roboto', sans-serif;
+	color: var(--primary);
+	font-size: 10px;
+	margin: auto;
+}
+
+a {
+	color: var(--darkerPrimary);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--secondary);
+	transition: 0.3s ease;
+}
+
+
+
+::selection {
+	background: rgba(124, 77, 255, 0.5);
+	color: white;
+}
+
+#selectedTagsTitle {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	margin: 20px;
+}
+
+#selectedTagsTitle span {
+	color: var(--darkerPrimary);
+}
+
+#selectedTagsTitle span:hover {
+	text-decoration: line-through;
+	text-decoration-color: var(--secondary); 
+}
+
+#sortDrop {
+	text-align: right;
+	margin: 0px 20px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+}
+
+#cards {
+	margin: 20px 0px;
+	/*display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 20px;
+	height: 100%;*/
+}
+
+.card {
+	position: relative;
+	float: left;
+	width: 31%;
+	margin: 1%;
+	min-width: 300px;
+	background-color: var(--secondary);
+}
+
+.cardHover {
+	transition: 0.33s;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.cardPadding {
+	padding: 12px 16px;
+	opacity: 0.5;
+}
+
+
+.card h2, .card h3 {
+	color: white;
+}
+
+.card:hover .cardHover {
+	background-color: var(--secondary);
+	transition: 0.23s;
+}
+
+.card:hover .cardPadding {
+	opacity: 1;
+	transition: 0.33s;
+}
+
+.card img {
+	width: 100%;
+	opacity: 0;
+}
+
+.card h2 {
+	font-family: 'Inter', sans-serif;
+	font-size: 25px;
+	font-weight: normal;
+}
+
+.card h3 {
+	font-family: 'Inconsolata', monospace, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.tagBox li {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	color: var(--primary);
+	background-color: white;
+	border-radius: 10px;
+	padding: 4px 10px;
+	margin: 1px;
+}
+
+.tagBox {
+	position: absolute;
+	bottom: 0px;
+}
+
+
+
+main { 
+    animation: push ease 0.6s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+
+@keyframes push { 
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    } 
+    100% { 
+        transform: translateY(0px);
+        opacity: 1;
+        } 
+    } 
+
+@keyframes fade { 
+    0% { 
+        opacity: 0;
+    } 
+    100% { 
+        opacity: 1;
+        } 
+    } 
+
+
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lightestSecondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darkerSecondary);
+}
+
+footer {
+	height: 50px;
+}
+
+
+/*Smaller screen stuff here*/
+@media only screen and (max-width: 1400px) and (min-width: 1000px) {
+	.card {
+		width: 48%;
+	}
+}
+
+
+/*Smaller screen stuff here*/
+@media only screen and (max-width: 1000px) {
+
+	.card {
+		width: 100%;
+	}
+
+}
+
+#mobileBar {
+	display: none;
+}
+
+
+/*Mobile stuff here*/
+@media only screen and (max-width: 600px) {
+
+	#mobileBar {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		background-color: white;
+		top: 0px;
+		left: 0px;
+		width: 90%;
+    	margin: 20px auto;
+    	align-items: center;
+	}
+
+	#mobileBar img {
+		width: 35px;
+	}
+
+	#hamburger {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		text-align: left;
+	}
+
+	#mobileBar .name {
+		grid-column-start: 2;
+		grid-column-end: 3;
+		text-align: center;
+		
+	}
+
+	#filterMenu {
+		grid-column-start: 3;
+		grid-column-end: 4;
+		text-align: right;
+	}
+
+	#sortDrop {
+		text-align: left;
+	}
+
+	#sidebar {
+		display: none;
+	}
+
+	body {
+		display: block;
+	}
+
+	main {
+		margin: 30px 15px;
+	}
+
+	.card {
+		min-width: auto;
+		margin: 5px 0px;
+	}
+}

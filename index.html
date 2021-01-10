@@ -1,50 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>A.Z. | Home Page</title>
-	<link rel="stylesheet" type="text/css" href="homeStyle.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<script src="https://d3js.org/d3.v6.min.js"></script>
 
 </head>
 <body>
-	<div id="container">
-		<section id="sidebar">
-		<div id="desc">
-			<a href="index.html"><img src="icon.png" alt="monogram" id="monogram"></a>
-			<h1>Allison Zheng</h1>
-			<ul>
-				<li>Programmer and Freelance Designer/Illustrator</li>
-				<li><a href="mailto: zheng.al@northeastern.edu"><span style="font-family: icon1">&agrave;</span></a>
-					<a href="https://www.instagram.com/allisonzart/"><span style="font-family: icon2; font-size: 19px;">A</span></a>
-					<a href="https://twitter.com/allisonzart"><span style="font-family: icon2; font-size: 19px;">t</span></a></li>
-				<a href="code/codeList.html">Web & Games</a> / <a href="art/artList.html">Art</a> / <a href="design/designList.html">Design</a></li>
-			</ul>
-		</div>
-		<nav>
-			<p></p>
-		</nav>
-		</section>
-		<main>
-			<h1>Home</h1>
-			<div id="mainGallery">
-				<!--<div id="galleryBar"><span id="controlButtons">&#10074&#10074</span><span id="slideNav"></span></div>-->
-				<div id="galleryImages"></div>
-				<div id="slideArrows"></div>
+	<nav id="mobileBar">
+		<div id="hamburger"><a href=""><img src="symbols/menu-24px.svg"></a></div>
+		<h1 class="name">Allison Zheng</h1>
+		<div id="filterMenu"><a href=""><img src="symbols/tune-24px.svg"></a></div>
+	</nav>
+	<nav id="sidebar">
+		<div id="sidebarContainer">
+			<div><img src="icon.png" id="icon"></div>
+			<div id="intro">
+				<h1 class="name">Allison Zheng</h1>
+				<h2 id="summary">Programmer, Illustrator, Designer</h2>
 			</div>
-			<div id="slideCaption"></div>
-			<p>Hi, I'm Allison and I like to make things. I'm currently an undergraduate student at Northeastern University (c/o 2023) pursuing a major in Computer Science/Game Development and a minor in Interaction Design.</p>
-		</main>
+			<ul id="socials">
+				<li><a href=""><img src="symbols/mail-black-18dp.svg"></a></li>
+				<li><a href=""><img src="symbols/iconfinder_27_Artstation_logo_logos_4373813.svg"></a></li>
+				<li><a href=""><img src="symbols/linkedin-logo.svg"></a></li>
+				<li><a href=""><img src="symbols/twitter.svg"></a></li>
+				<li><a href=""><img src="symbols/instagram.svg"></a></li>
+			</ul>
+
+			<div id="categoryFilters">
+			</div>
+		</div>
+	</nav>
+	
+	<main>
+	<div>
+		<h1 id="selectedTagsTitle">
+			<span>Selected 1</span>, <span>Selected 2</span>, <span>Selected 3</span>
+		</h1>
+
+		<div id="clickables">
+			<div id="sortDrop">
+				<span>Newest to Oldest</span>
+				<span class="hiding">Oldest to Newest</span>
+			</div>
+			<div id="cards">
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card" style="background-image: url(thumbnails/hills.png);">
+					<img src="thumbnails/poetryBook.jpg">
+					<div class="cardHover">
+						<div class="cardPadding">
+							<h2>Project Title</h2>
+							<h3>2020</h3>
+							<ul class="tagBox">
+								<li>tag 1</li>
+								<li>tag 2</li>
+								<li>tag 3</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<footer></footer>
+	</main>
+
+	<footer>
+		
+	</footer>
 </body>
-<script type="text/javascript"  src="addSlides.js"></script>
-<script type="text/javascript">
-	var images = [{link: "art/nuspectrum.html", source: "https://cdnb.artstation.com/p/assets/images/images/025/201/541/large/allison-zheng-allison-zheng-party-for-1.jpg?1584995506", caption: "none"},
-	{link: "art/charDes.html", source: "https://cdna.artstation.com/p/assets/images/images/025/201/794/large/allison-zheng-marietta-lineless.jpg?1584996251", caption: "none"}];
-	addSlides(images);
-</script>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript">
-showSlide(0);</script>
+<script type="text/javascript" src="tagScript.js"></script>
 </html>
