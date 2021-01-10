@@ -14,9 +14,15 @@
 }
 
 
+.selectedFilter {
+	color: var(--secondary);
+	transition: 0.3s;
+}
+
 .hiding {
 	display: none;
 	transition: max-height 0.2s ease-out;
+	opacity: 0;
 }
 
 .droppedDown {
@@ -120,7 +126,10 @@ h1 {
 	color: var(--darkerPrimary);
 }
 
-
+span.sortDrop {
+	cursor: pointer;
+	transition: opacity 0.33s;
+}
 
 span.drop {
 	cursor: pointer;
