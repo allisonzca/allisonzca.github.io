@@ -48,6 +48,10 @@ nav span {
 
 @media only screen and (min-width: 640px) {
 
+	button {
+		display: inline-block;
+	}
+
 	.filter {
 		font-size: 30px;
 	}
@@ -119,7 +123,7 @@ nav span {
 	nav {
 		background: none;
 		position: fixed;
-		left: 0px;
+		left: 0px; 
 		width: 25%;
 		
 	}
@@ -129,6 +133,12 @@ nav span {
 		width: 70%;
 		margin: auto;
 	}
+
+
+	#hamburger {
+		display: none !important;
+	}
+
 
 
 }

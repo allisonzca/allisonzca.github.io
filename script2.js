@@ -11,6 +11,8 @@ var cardBox = document.getElementById("cardContainer");
 var projContainer = document.getElementById("proj");
 var accessibility = document.getElementById("accessibility");
 
+var currentPage = "gallery";
+
 
 // transitions --------------------------------------------------------
 
@@ -164,7 +166,8 @@ function confirmCat() {
 // select menu ------------------------------------------------------------------
 
 hamburger.addEventListener("click", toggleHamburger);
-
+document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+document.getElementById("commissionLink").addEventListener("click", toggleComms);
 
 var hamOpen = false;
 function toggleHamburger() {
@@ -320,14 +323,20 @@ function showProject() {
 			break;
 		}
 	}
+
+
 }
 
 
-document.getElementById("aboutLink").addEventListener("click", toggleAbout);
-document.getElementById("commissionLink").addEventListener("click", toggleComms);
+
 
 
 function toggleProject() {
+	if (currentPage == "project") {
+		return ;
+	}
+
+
 	cardBox.classList.toggle("hidden");
 	toggleItem(projContainer);
 	toggleItem(selectedTitle);
@@ -336,16 +345,117 @@ function toggleProject() {
 
 	toggleNavLinks();
 
+	currentPage = "project";
+
 	//accessibility.classList.toggle("hidden");
 
 }
 
+var aboutPage = document.getElementById("bio");
+var commPage = document.getElementById("commissionSheet");
+
+
 function toggleAbout() {
+	if (currentPage == "about") {
+		return ;
+	}
+
+	/*toggleItem(aboutPage);*/
+
+	if (width < 640) {
+		toggleHamburger();
+	}
+
+	/*
+	cardBox.classList.add("hidden");
+	projContainer.classList.add("hidden");
+	selectedTitle.classList.add("hidden");
+	commPage.classList.add("hidden");*/
+
+	if (!aboutPage.classList.contains("hidden")) {
+		document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+		fadeOut(aboutPage);
+		
+	} else {
+		document.getElementById("aboutLink").removeEventListener("click", toggleAbout);
+		document.getElementById("commissionLink").addEventListener("click", toggleComms);
+
+		fadeIn(aboutPage);
+		fadeOut(cardBox);
+		fadeOut(selectedTitle);
+		fadeOut(commPage);
+		fadeOut(navList);
+
+		currentPage = "about";
+	}
 
 }
 
 function toggleComms() {
+	if (currentPage == "comms") {
+		return ;
+	}
 
+	if (width < 640) {
+		toggleHamburger();
+	}
+
+	toggleItem(commPage);
+
+	/*
+	cardBox.classList.add("hidden");
+	projContainer.classList.add("hidden");
+	selectedTitle.classList.add("hidden");
+	aboutPage.classList.add("hidden");*/
+
+
+	if (!commPage.classList.contains("hidden")) {
+		document.getElementById("commissionLink").addEventListener("click", toggleComms);
+		fadeOut(commPage);
+
+	} else {
+		document.getElementById("commissionLink").removeEventListener("click", toggleComms);
+		document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+		fadeIn(commPage);
+		fadeOut(aboutPage);
+		fadeOut(cardBox);
+		fadeOut(selectedTitle);
+		fadeOut(navList);
+
+		currentPage = "comms";
+	}
+}
+
+var backHome = document.getElementsByClassName("backHome");
+for (var i = 0; i < backHome.length; i++) {
+	backHome[i].addEventListener("click", toggleGallery);
+}
+
+
+document.getElementById("webTitle").addEventListener("click", toggleGallery);
+
+
+function toggleGallery() {
+	if (currentPage == "gallery") {
+		return ;
+	}
+
+	if (!cardBox.classList.contains("hidden")) {
+		fadeOut(cardBox);
+
+	} else {
+		fadeOut(aboutPage);
+		fadeOut(commPage);
+		fadeIn(cardBox);
+		fadeIn(selectedTitle);
+		fadeIn(navList);
+		currentPage = "gallery";
+
+	}
+
+	document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+	document.getElementById("commissionLink").addEventListener("click", toggleComms);
+	
 }
 
 
