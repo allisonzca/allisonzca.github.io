@@ -386,7 +386,16 @@ div#cardContainer {
 }
 
 button {
-	display: none;
+	/*display: none;*/
 	background: none;
 	border: none;
+}
+
+
+.backHome {
+	display: none;
+}
+
+#bio, #about {
+	margin: 20px;
 }

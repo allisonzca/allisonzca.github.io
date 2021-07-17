@@ -292,7 +292,7 @@ function toggleMenu() {
 // select card -----------------------------------------------------
 
 var cardX = document.getElementById("closeCard");
-cardX.addEventListener("click", toggleProject);
+cardX.addEventListener("click", showProject);
 
 function showProject() {
 
@@ -338,12 +338,13 @@ function toggleProject() {
 
 
 	cardBox.classList.toggle("hidden");
-	toggleItem(projContainer);
-	toggleItem(selectedTitle);
+
+	fadeIn(projContainer);
+	fadeOut(selectedTitle);
 	//projContainer.classList.toggle("hidden");
 	//selectedTitle.classList.toggle("hidden");
 
-	toggleNavLinks();
+	//toggleNavLinks();
 
 	currentPage = "project";
 
@@ -384,7 +385,8 @@ function toggleAbout() {
 		fadeOut(cardBox);
 		fadeOut(selectedTitle);
 		fadeOut(commPage);
-		fadeOut(navList);
+		//fadeOut(navList);
+		fadeOut(projContainer);
 
 		currentPage = "about";
 	}
@@ -400,7 +402,7 @@ function toggleComms() {
 		toggleHamburger();
 	}
 
-	toggleItem(commPage);
+	//toggleItem(commPage);
 
 	/*
 	cardBox.classList.add("hidden");
@@ -420,7 +422,8 @@ function toggleComms() {
 		fadeOut(aboutPage);
 		fadeOut(cardBox);
 		fadeOut(selectedTitle);
-		fadeOut(navList);
+		//fadeOut(navList);
+		fadeOut(projContainer);
 
 		currentPage = "comms";
 	}
@@ -432,7 +435,7 @@ for (var i = 0; i < backHome.length; i++) {
 }
 
 
-document.getElementById("webTitle").addEventListener("click", toggleGallery);
+document.getElementById("homeLink").addEventListener("click", toggleGallery);
 
 
 function toggleGallery() {
@@ -442,13 +445,15 @@ function toggleGallery() {
 
 	if (!cardBox.classList.contains("hidden")) {
 		fadeOut(cardBox);
+		document.getElementById("homeLink").removeEventListener("click", toggleGallery);
 
 	} else {
 		fadeOut(aboutPage);
 		fadeOut(commPage);
+		fadeOut(projContainer);
 		fadeIn(cardBox);
 		fadeIn(selectedTitle);
-		fadeIn(navList);
+		//fadeIn(navList);
 		currentPage = "gallery";
 
 	}
@@ -476,6 +481,8 @@ function toggleItem(item) {
 		fadeIn(item);
 	}
 }
+
+document.getElementById("closeCard").addEventListener("click", toggleGallery);
 
 
 // initialize -------------------------------------------------------
