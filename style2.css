@@ -52,7 +52,7 @@
 h1, h2, h3, h4, body {
 	/*font-weight: normal;*/
 	margin: 0px;
-	font-family: 'Roboto';
+	font-family: 'Roboto', sans-serif;
 	
 }
 
@@ -116,6 +116,7 @@ ul {
   background-size: contain;*/
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   
 }
 
@@ -381,6 +382,19 @@ div#cardContainer {
 	height: 30px;
 }
 
+#projGallery div {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+
+}
+
+.projImage, .imageBox {
+	height: 60vw;
+	background-color: #00000069;
+}
+
+
 #projGallery img {
 	max-width: 100%;
 }
@@ -426,6 +440,10 @@ img {
 }
 
 
+.projImage {
+	/*margin-bottom: 20px;*/
+}
+
 #projCat, #projDate {
     font-size: 17px;
     font-family: 'Inconsolata';
@@ -461,4 +479,8 @@ tr {
 
 #commissionSheet h3 {
 	margin-top: 20px;
+}
+
+footer {
+	height: 20px;
 }

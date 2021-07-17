@@ -48,23 +48,7 @@ function fadeIn(obj) {
 
 //data -----------------------------------------
 
-var art = "art";
-var code = "code";
-var design = "design";
-var games = "games";
 
-
-var colorKey = [{cat: art, color: "ce94b7"},
-	{cat: code, color: "e47258"},
-	{cat: design, color: "8cc1e6"},
-	{cat: games, color: "bbd8a8"}];
-
-var categories = [art, code, design, games];
-
-var projects = [{name: "test1", category: art, month: 1, year: 2021, thumb: "http://tinyurl.com/6ja33xb5", desc: "lorem ipsum"}, 
-				{name: "test2", category: code, month: 2, year: 2021, thumb: "http://tinyurl.com/e539xsfk", desc: "dolor"},
-				{name: "test3", category: design, month: 3, year: 2021, thumb: "http://tinyurl.com/nx9fjmxx", desc: "si"}, 
-				{name: "test4", category: games, month: 1, year: 2020, thumb: "http://tinyurl.com/3p4r9tk5", desc: "amet"}];
 
 
 //select Categories ----------------------------
@@ -233,7 +217,13 @@ function addProjects() {
 			item.classList.add("card");
 			var itemWrapper = document.createElement("div");
 			itemWrapper.classList.add("cardWrap");
-			itemWrapper.style.backgroundImage = "url(\'" + current.thumb + "\')";
+
+			if (current.thumb != "") {
+				itemWrapper.style.backgroundImage = "url(\'photos/" + current.folder + "/" + current.thumb + "\')";
+			} 
+			else { 
+				itemWrapper.style.backgroundImage = "url(\'photos/" + current.folder + "/1.jpg\')"; 
+			}
 
 			itemWrapper.appendChild(item);
 			cardBox.appendChild(itemWrapper);
@@ -301,7 +291,6 @@ function showProject() {
 			var currentProj = projects[i];
 			console.log("id: " + this.id);
 			console.log(currentProj.name);
-			console.log(currentProj.thumb);
 			
 			toggleProject();
 
@@ -310,16 +299,24 @@ function showProject() {
 			var projDate = document.getElementById("projDate");
 			var projCat = document.getElementById("projCat");
 			var projDesc = document.getElementById("projDesc");
-			var mainImage = document.createElement("img");
-			mainImage.src = currentProj.thumb;
+			//var mainImage = document.createElement("img");
+			//mainImage.src = "url(\'photos/" + currentProj.folder + "/1.jpg\')";
 
 			projName.innerHTML = currentProj.name;
+
+			
 			projGallery.innerHTML = "";
 			//projGallery.appendChild(mainImage);
-			projGallery.style.backgroundImage = "url(\'" + currentProj.thumb + "\')";
+			
+
+			genGallery(currentProj);
+
 			projDate.innerHTML = currentProj.month + "/" + currentProj.year;
 			projCat.innerHTML = currentProj.category;
 			projDesc.innerHTML = currentProj.desc;
+
+			
+
 
 			if (currentProj.category == code && width > 640) {
 				projGallery.style.height = "30vw";
@@ -330,8 +327,49 @@ function showProject() {
 			break;
 		}
 	}
+}
 
 
+function genGallery(proj) {
+	var projGallery = document.getElementById("projGallery");
+	projGallery.innerHTML = "";
+
+	//if (proj.category != code) {
+		var fullImage = document.createElement("div");
+		fullImage.classList.add("projImage");
+		fullImage.style.backgroundImage = "url(\'photos/" + proj.folder + "/1.jpg\')";
+		projGallery.appendChild(fullImage);
+	//}
+
+
+	for (var i = 1; i < proj.gallery.length; i++) {
+		var image = document.createElement("div");
+		image.classList.add("imageBox");
+		var index = i + 1;
+
+		
+		var type = ".jpg";
+
+		if(proj.folder == "switchin" && index == 3) {
+			type = ".gif";
+		}
+
+		image.style.backgroundImage = "url(\'photos/" + proj.folder + "/" + index + type + "\')";
+
+		var caption = document.createElement("p");
+		caption.classList.add("imageCaption");
+		caption.innerHTML = proj.gallery[i].label;
+
+		var imgContainer = document.createElement("div");
+		imgContainer.classList.add("imgContainer");
+
+		imgContainer.appendChild(image);
+		imgContainer.appendChild(caption);
+		projGallery.appendChild(imgContainer);
+	}
+
+	var footer = document.createElement("footer");
+	projGallery.appendChild(footer);
 }
 
 
@@ -342,6 +380,8 @@ function toggleProject() {
 	if (currentPage == "project") {
 		return ;
 	}
+
+	window.scrollTo(0, 0);
 
 
 	cardBox.classList.toggle("hidden");
@@ -387,6 +427,9 @@ function toggleAbout() {
 		toggleHamburger();
 	}
 
+
+	window.scrollTo(0, 0);
+
 	/*
 	cardBox.classList.add("hidden");
 	projContainer.classList.add("hidden");
@@ -430,6 +473,8 @@ function toggleComms() {
 		toggleHamburger();
 	}
 
+	window.scrollTo(0, 0);
+
 	//toggleItem(commPage);
 
 	/*
@@ -446,6 +491,14 @@ function toggleComms() {
 	} else {
 		document.getElementById("commissionLink").removeEventListener("click", toggleComms);
 		document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+
+
+		if (width < 640) {
+			menu.ClassList.add("hidden");
+			//fadeOut(menu);
+		}
+
+
 		fadeIn(commPage);
 		fadeOut(aboutPage);
 		fadeOut(cardBox);
@@ -455,11 +508,7 @@ function toggleComms() {
 
 		currentPage = "comms";
 
-		if (width < 640) {
-			menu.ClassList.add("hidden");
-			//fadeOut(menu);
-		}
-
+		
 		document.getElementById("homeLink").classList.remove("selectedPage");
 		document.getElementById("commissionLink").classList.add("selectedPage");
 		document.getElementById("aboutLink").classList.remove("selectedPage");
@@ -487,6 +536,8 @@ function toggleGallery() {
 	if (width < 640) {
 		toggleHamburger();
 	}
+
+	window.scrollTo(0, 0);
 
 
 	if (!cardBox.classList.contains("hidden")) {

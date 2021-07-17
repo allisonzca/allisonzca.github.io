@@ -60,6 +60,16 @@ nav span {
 
 @media only screen and (min-width: 640px) {
 
+	.imgContainer {
+    	display: grid;
+    	grid-template-columns: 70% 30%;
+    	text-align: left;
+	}
+
+	#imageBox {
+		background-position-y: top;
+	}
+
 	button {
 		display: inline-block;
 	}
@@ -177,6 +187,14 @@ nav span {
 
 	th {
 		font-size: 16px;
+	}
+
+	.projImage, .imageBox {
+		height: 40vw;
+	}
+
+	.imageCaption {
+		padding: 20px;
 	}
 
 }
@@ -297,7 +315,7 @@ nav span {
 	div#cardContainer {
     display: grid;
     grid-column-gap: 20px;
-  	grid-template-columns: auto auto;
+  	grid-template-columns: 50% auto;
   	margin: 20px;
   	grid-auto-rows: 20vw;
 	}
