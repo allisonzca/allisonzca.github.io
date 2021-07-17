@@ -21,7 +21,7 @@
 					<img src="symbols/testicon.png">
 				</div>
 				<h1>Allison Zheng</h1>
-				<span><a href="commissions.html">commission info</a> / <a href="about.html">about</a></span>
+				<span><a id="commissionLink">commission info</a> / <a id="aboutLink">about</a></span>
 
 				<ul id="socials">
 					<li><a href=""><img src="symbols/mail-black-18dp.svg"> <span>Email</span></a></li>
@@ -39,7 +39,9 @@
 		<div id="accessibilityMobile">turn off bg animation</div>
 		<!--<div id="confirm">view projects</div>-->
 	</nav>
+
 	<main id="main">
+
 		<h2 id="selectedCategories"></h2>
 		<!--<div id="menu">select</div>-->
 		<div id="cardContainer"></div>
@@ -51,7 +53,16 @@
 			<h4 id="projDate"></h4>
 			<p id="projDesc"></p>
 		</div>
-		<div id="bio"><p></p></div>
+
+
+		<div id="bio" class="hidden">
+			<p>		
+			</p>
+		</div>
+
+		<div id="commissionSheet" class="hidden">
+		</div>
+
 	</main>
 </body>
 <script type="text/javascript" src="script2.js"></script>

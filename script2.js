@@ -12,6 +12,38 @@ var projContainer = document.getElementById("proj");
 var accessibility = document.getElementById("accessibility");
 
 
+// transitions --------------------------------------------------------
+
+
+function fadeOut(obj) {
+	d3.select(obj)
+		.style("opacity", 1);
+	d3.select(obj)
+		.transition()
+		.duration(250)
+		.ease(d3.easeLinear)
+		.style("opacity", 0);
+
+	obj.classList.add("hidden");
+
+	}
+
+
+function fadeIn(obj) {
+
+	obj.classList.remove("hidden");
+
+	d3.select(obj)
+		.style("opacity", 0);
+	d3.select(obj)
+		.transition()
+		.duration(250)
+		.ease(d3.easeLinear)
+		.style("opacity", 1);
+		
+	}
+
+
 //data -----------------------------------------
 
 var art = "art";
@@ -290,14 +322,49 @@ function showProject() {
 	}
 }
 
+
+document.getElementById("aboutLink").addEventListener("click", toggleAbout);
+document.getElementById("commissionLink").addEventListener("click", toggleComms);
+
+
 function toggleProject() {
 	cardBox.classList.toggle("hidden");
-	projContainer.classList.toggle("hidden");
-	selectedTitle.classList.toggle("hidden");
-	//navFull.classList.toggle("hidden");
+	toggleItem(projContainer);
+	toggleItem(selectedTitle);
+	//projContainer.classList.toggle("hidden");
+	//selectedTitle.classList.toggle("hidden");
 
-	accessibility.classList.toggle("hidden");
+	toggleNavLinks();
 
+	//accessibility.classList.toggle("hidden");
+
+}
+
+function toggleAbout() {
+
+}
+
+function toggleComms() {
+
+}
+
+
+
+function toggleNavLinks() {
+	if (!navList.classList.contains("hidden")) {
+		fadeOut(navList);
+	} else {
+		fadeIn(navList);
+	}
+}
+
+
+function toggleItem(item) {
+	if (!item.classList.contains("hidden")) {
+		fadeOut(item);
+	} else {
+		fadeIn(item);
+	}
 }
 
 
@@ -320,12 +387,8 @@ accessibilityMobile.addEventListener("click", toggleAnimation);
 var isPlaying = false;
 
 
-//var width = document.getElementsByTagName("body")[0].offsetWidth;
-//var height = document.getElementsByTagName("body")[0].offsetHeight;
 var width = window.innerWidth;
 var height = window.innerHeight;
-//var height = document.getElementsByTagName("body")[0].offsetHeight;
-
 
 var bg = d3.select("body")
 	.append("svg")
@@ -334,15 +397,6 @@ var bg = d3.select("body")
 	.style("position", "fixed")
 	.style("z-index", -100)
 	.style("top", 0);
-
-/*
-var container = bg.append("rect")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", width)
-    .attr("height", height);*/
-
-/* var bg = d3.select("html");*/
 
 var container = d3.select("body");
 
@@ -473,9 +527,7 @@ toggleAnimation();
 
 // fade out -----------------------------------------------------
 
-function fadeOut() {
 
-}
 
 
 
