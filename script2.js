@@ -321,6 +321,12 @@ function showProject() {
 			projCat.innerHTML = currentProj.category;
 			projDesc.innerHTML = currentProj.desc;
 
+			if (currentProj.category == code && width > 640) {
+				projGallery.style.height = "30vw";
+			} else {
+				projGallery.style.height = "40vw";
+			}
+
 			break;
 		}
 	}
@@ -346,6 +352,11 @@ function toggleProject() {
 	//selectedTitle.classList.toggle("hidden");
 
 	//toggleNavLinks();
+
+	if (width < 640) {
+			//fadeOut(menu);
+			menu.classList.add("hidden");
+		}
 
 	currentPage = "project";
 
@@ -390,6 +401,10 @@ function toggleAbout() {
 		document.getElementById("aboutLink").removeEventListener("click", toggleAbout);
 		document.getElementById("commissionLink").addEventListener("click", toggleComms);
 
+		if (width < 640) {
+			menu.classList.add("hidden");
+			//fadeOut(menu);
+		}
 		fadeIn(aboutPage);
 		fadeOut(cardBox);
 		fadeOut(selectedTitle);
@@ -440,6 +455,11 @@ function toggleComms() {
 
 		currentPage = "comms";
 
+		if (width < 640) {
+			menu.ClassList.add("hidden");
+			//fadeOut(menu);
+		}
+
 		document.getElementById("homeLink").classList.remove("selectedPage");
 		document.getElementById("commissionLink").classList.add("selectedPage");
 		document.getElementById("aboutLink").classList.remove("selectedPage");
@@ -474,6 +494,10 @@ function toggleGallery() {
 		document.getElementById("homeLink").removeEventListener("click", toggleGallery);
 
 	} else {
+		if (width < 640) {
+			menu.classList.remove("hidden");
+		}
+
 		fadeOut(aboutPage);
 		fadeOut(commPage);
 		fadeOut(projContainer);
