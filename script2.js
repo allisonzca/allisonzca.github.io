@@ -315,7 +315,8 @@ function showProject() {
 
 			projName.innerHTML = currentProj.name;
 			projGallery.innerHTML = "";
-			projGallery.appendChild(mainImage);
+			//projGallery.appendChild(mainImage);
+			projGallery.style.backgroundImage = "url(\'" + currentProj.thumb + "\')";
 			projDate.innerHTML = currentProj.month + "/" + currentProj.year;
 			projCat.innerHTML = currentProj.category;
 			projDesc.innerHTML = currentProj.desc;
@@ -356,8 +357,16 @@ var aboutPage = document.getElementById("bio");
 var commPage = document.getElementById("commissionSheet");
 
 
+function closeMenu() {
+	navFull.classList.add("hidden");
+}
+
+
 function toggleAbout() {
 	if (currentPage == "about") {
+		if (width < 640) {
+			toggleHamburger();
+		}
 		return ;
 	}
 
@@ -389,6 +398,10 @@ function toggleAbout() {
 		fadeOut(projContainer);
 
 		currentPage = "about";
+
+		document.getElementById("homeLink").classList.remove("selectedPage");
+		document.getElementById("commissionLink").classList.remove("selectedPage");
+		document.getElementById("aboutLink").classList.add("selectedPage");
 	}
 
 }
@@ -426,7 +439,14 @@ function toggleComms() {
 		fadeOut(projContainer);
 
 		currentPage = "comms";
+
+		document.getElementById("homeLink").classList.remove("selectedPage");
+		document.getElementById("commissionLink").classList.add("selectedPage");
+		document.getElementById("aboutLink").classList.remove("selectedPage");
 	}
+
+
+
 }
 
 var backHome = document.getElementsByClassName("backHome");
@@ -443,6 +463,12 @@ function toggleGallery() {
 		return ;
 	}
 
+
+	if (width < 640) {
+		toggleHamburger();
+	}
+
+
 	if (!cardBox.classList.contains("hidden")) {
 		fadeOut(cardBox);
 		document.getElementById("homeLink").removeEventListener("click", toggleGallery);
@@ -455,9 +481,15 @@ function toggleGallery() {
 		fadeIn(selectedTitle);
 		//fadeIn(navList);
 		currentPage = "gallery";
+		document.getElementById("homeLink").classList.add("selectedPage");
+		document.getElementById("commissionLink").classList.remove("selectedPage");
+		document.getElementById("aboutLink").classList.remove("selectedPage");
+
+
 
 	}
 
+	
 	document.getElementById("aboutLink").addEventListener("click", toggleAbout);
 	document.getElementById("commissionLink").addEventListener("click", toggleComms);
 	
@@ -482,7 +514,12 @@ function toggleItem(item) {
 	}
 }
 
-document.getElementById("closeCard").addEventListener("click", toggleGallery);
+document.getElementById("closeCard").addEventListener("click", function () {
+	toggleGallery();
+	if (width < 640) {
+		toggleHamburger();	
+	}
+	});
 
 
 // initialize -------------------------------------------------------
@@ -643,9 +680,6 @@ toggleAnimation();
 
 
 // fade out -----------------------------------------------------
-
-
-
 
 
 
