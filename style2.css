@@ -6,9 +6,9 @@
 	
 	--darkerPrimary: #1B1B1B;
 
-	    --secondary: #bbd8a8;
-    --darkerSecondary: #74903d;
-    --lighterSecondary: #ebf5d4;
+	    --secondary: gray;
+    --darkerSecondary: darkgray;
+    --lighterSecondary: lightgray;
     --lightestSecondary: #ffffff;
 
 
@@ -167,13 +167,39 @@ nav {
 	display: none;
 	float: right;
   width: 100%;
+
+}
+
+#navLinks li {
+	color: gray;
 }
 
 #navLinks li:hover {
-	color: var(--secondary);
+	/*color: var(--secondary);*/
 	transition: 0.3s;
 }
 
+
+#art:hover {
+
+	color: var(--art);
+
+}
+
+#code:hover {
+
+	color: var(--code);
+}
+
+
+#design:hover {
+	color: var(--des);
+}
+
+#games:hover {
+
+	color: var(--game);
+}
 
 #accessibility {
 	display: none;
