@@ -179,7 +179,7 @@ nav span {
     	margin-top: 0px;
 	}
 
-	#projCat {
+	#projCat, .projCatCard {
 		font-size: 24px;
     	margin-bottom: 15px;
 	}

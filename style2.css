@@ -444,7 +444,7 @@ img {
 	/*margin-bottom: 20px;*/
 }
 
-#projCat, #projDate {
+#projCat, #projDate, .projCatCard, .projDateCard {
     font-size: 17px;
     font-family: 'Inconsolata';
     font-weight: normal;
@@ -483,4 +483,8 @@ tr {
 
 footer {
 	height: 20px;
+}
+
+.cardInfo {
+	padding: 0px 30px;
 }

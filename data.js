@@ -74,6 +74,8 @@ var dressUp = [];
 var eduo = [];
 
 
+/*
+
 var projects = [{name: "Ap Art Concentration", category: art, month: 5, year: 2019, desc: "The concentration section of my Ap Art portfolio.", gallery: apArt, folder: "apArt", thumb:"12.jpg"}, 
 				{name: "A Year In the Life", category: games, month: 2, year: 2021, desc: "A Twine game created as a final project for a Games and Society class.", gallery: ayitl, folder: "ayitl", thumb: ""},
 				{name: "Northeastern University Holiday Card", category: art, month: 10, year: 2020, desc: "Entry for Northeastern University's 2020 Holiday Card Contest. 3rd Place winner.", gallery: neuCard2020, folder: "neuHolidayCard2020", thumb:""}, 
@@ -84,4 +86,42 @@ var projects = [{name: "Ap Art Concentration", category: art, month: 5, year: 20
 				{name: "Crunch", category: design, month: 1, year: 2020, desc: "A prototype of an online calendar with a focus on displaying deadlines and customizing its appearance. Created as a semester-long project for Interaction Design I.", gallery: crunch, folder: "crunch", thumb: "00.jpg"},
 				{name: "Dress Up Game", category: code, month: 1, year: 2020, desc: "An online dress up game created as a final project for Programming Basics.", gallery: dressUp, folder: "dressUp", thumb:"0.jpg"},
 				{name: "Reflection", category: art, month: 1, year: 2020, desc: "amet", gallery: reflection, folder: "reflection", thumb:""},
-				{name: "Eduo", category: code, month: 8, year: 2019, desc: "amet", gallery: eduo, folder: "eduo", thumb:"0.jpg"}];
+				{name: "Eduo", category: code, month: 8, year: 2019, desc: "amet", gallery: eduo, folder: "eduo", thumb:"0.jpg"}];*/
+
+var projects = [{name: "Ap Art Concentration", category: [art], month: 5, year: 2019, desc: "The concentration section of my Ap Art portfolio.", gallery: apArt, folder: "apArt", thumb:"12.jpg"}, 
+				{name: "A Year In the Life", category: [games, art], month: 12, year: 2020, desc: "A Twine game created as a final project for a Games and Society class.", gallery: ayitl, folder: "ayitl", thumb: ""},
+				{name: "Northeastern University Holiday Card", category: [art], month: 12, year: 2020, desc: "Entry for Northeastern University's 2020 Holiday Card Contest. 3rd Place winner.", gallery: neuCard2020, folder: "neuHolidayCard2020", thumb:""}, 
+				{name: "Party for 1", category: [art], month: 5, year: 2020, desc: "Submitted to Spectrum Literary Arts Magazine.", gallery: party41, folder: "party41", thumb:""},
+				{name: "Pinned", category: [art], month: 1, year: 2021, desc: "", gallery: pinned, folder: "pinned", thumb:""},
+				{name: "Poetry Book Illustrations", category: [art], month: 12, year: 2019, desc: "A series of illustrations of existing poems for a semester-long project in 2D Tools.", gallery: poetryBook, folder: "poetryBook", thumb:""},
+				{name: "Switchin'", category: [games, art], month: 12, year: 2020, desc: "A prototype of a 2d platformer created as a final project for Foundations of Games.", gallery: switchin, folder: "switchin", thumb:"0.jpg"},
+				{name: "Crunch", category: [design], month: 12, year: 2020, desc: "A prototype of an online calendar with a focus on displaying deadlines and customizing its appearance. Created as a semester-long project for Interaction Design I.", gallery: crunch, folder: "crunch", thumb: "00.jpg"},
+				{name: "Dress Up Game", category: [code, games], month: 5, year: 2020, desc: "An online dress up game created as a final project for Programming Basics. It can be played <a href=\"https://allisonzca.github.io/dressUpGame/game.html\">here</a>.", gallery: dressUp, folder: "dressUp", thumb:"0.jpg"},
+				{name: "Reflection", category: [art], month: 3, year: 2021, desc: "", gallery: reflection, folder: "reflection", thumb:""},
+				{name: "Eduo", category: [design, code], month: 8, year: 2019, desc: "An educational web game where 2 players are randomly matched to solve math problems. Created in 24 hours in a team of 4 for AngelHacks 2019. Qualified for semifinals.", gallery: eduo, folder: "eduo", thumb:"0.jpg"}];
+
+function compareDates(a, b) {
+	var aYear = a.year;
+	var bYear = b.year;
+	var aMonth = a.month;
+	var bMonth = b.month;
+
+	console.log("sorted");
+	if (aYear < bYear) {
+		return 1;
+
+	} else if (aYear > bYear) {
+		return -1;
+
+	} else {
+		if (aMonth < bMonth) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+
+}
+
+projects.sort(compareDates);
+

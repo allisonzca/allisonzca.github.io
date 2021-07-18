@@ -178,7 +178,20 @@ function toggleHamburger() {
 // add project cards belonging to selected categories to main -------------------
 
 
+function checkContains(selectedCats, itemCats) {
+	for (var i = 0; i < selectedCats.length; i++) {
+		for (var ii = 0; ii < itemCats.length; ii++) {
+			if (selectedCats[i] == itemCats[ii]) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
 function addProjects() {
+
 
 	for (i = 0; i < confirmedCats.length; i++) {
 		console.log(confirmedCats[i]);
@@ -192,7 +205,8 @@ function addProjects() {
 
 	for (i = 0; i < projects.length; i++) {
 		var current = projects[i];
-		if (confirmedCats.includes(current.category)) {
+		if (checkContains(confirmedCats, current.category)) {
+		//if (confirmedCats.includes(current.category)) {
 			var item = document.createElement("div");
 			item.addEventListener("click", showProject)
 			
@@ -207,13 +221,35 @@ function addProjects() {
 			var cardTitle = document.createElement("h4");
 			cardTitle.innerHTML = current.name;
 			item.appendChild(cardTitle);
+			var cardInfo = document.createElement("div");
+			var date = current.month + "/" + current.year;
+			var categoriesText = "";
+			for (var ii = 0; ii < current.category.length; ii++) {
+				categoriesText = categoriesText + current.category[ii];
+				if (ii != current.category.length - 1) {
+					categoriesText = categoriesText + ", ";
+				}
+			}
+			var dateBox = document.createElement("div");
+			var categoriesBox = document.createElement("div");
+			categoriesBox.classList.add("projCatCard");
+			dateBox.classList.add("projDateCard");
+			dateBox.innerHTML = date;
+			categoriesBox.innerHTML = categoriesText;
+			cardInfo.appendChild(categoriesBox);
+			cardInfo.appendChild(dateBox);
+			
+			cardInfo.classList.add("cardInfo");
+			item.appendChild(cardInfo);
+
+
 			item.id = current.name;
 
 			
 			
 			
 
-			item.classList.add(current.category);
+			item.classList.add(current.category[0]);
 			item.classList.add("card");
 			var itemWrapper = document.createElement("div");
 			itemWrapper.classList.add("cardWrap");
@@ -312,17 +348,25 @@ function showProject() {
 			genGallery(currentProj);
 
 			projDate.innerHTML = currentProj.month + "/" + currentProj.year;
-			projCat.innerHTML = currentProj.category;
+
+			var categoryList = "";
+			for (var i = 0; i < currentProj.category.length; i++) {
+				categoryList = categoryList + currentProj.category[i];
+				if (i < currentProj.category.length - 1) {
+					categoryList = categoryList + ", ";
+				}
+			}
+			projCat.innerHTML = categoryList;
 			projDesc.innerHTML = currentProj.desc;
 
 			
-
+			/*
 
 			if (currentProj.category == code && width > 640) {
 				projGallery.style.height = "30vw";
 			} else {
 				projGallery.style.height = "40vw";
-			}
+			}*/
 
 			break;
 		}
