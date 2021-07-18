@@ -538,7 +538,7 @@ function toggleComms() {
 
 
 		if (width < 640) {
-			menu.ClassList.add("hidden");
+			menu.classList.add("hidden");
 			//fadeOut(menu);
 		}
 
