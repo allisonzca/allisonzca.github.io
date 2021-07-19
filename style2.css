@@ -514,3 +514,57 @@ footer {
 .cardInfo {
 	padding: 0px 30px;
 }
+
+.samples {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto;
+}
+
+.sampleWrap {
+	height: 120px;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#commissionSheet strong {
+	font-size: 23px;
+	font-family: 'Inter';
+}
+
+.sampleDesc h4 {
+    display: inline-block;
+    background: #0000005e;
+    padding: 5px;
+    border-bottom-right-radius: 11px;
+}
+
+#modal {
+	/*display: none;*/
+	background-color: #000000a8;
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+
+}
+
+#modalBox {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+
+}
+
+#modalBox img {
+	width: 100%;
+	height: auto;
+	position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0, -50%);
+}
+}

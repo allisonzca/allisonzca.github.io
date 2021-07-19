@@ -71,8 +71,12 @@ var crunch = [{label: "1"},
 
 var dressUp = [];
 
-var eduo = [];
+var eduo = ["1", "2"];
 
+
+var thisSite = [{label: "1"}, 
+	{label: "2"},
+	{label: "3"}];
 
 /*
 
@@ -95,10 +99,13 @@ var projects = [{name: "Ap Art Concentration", category: [art], month: 5, year: 
 				{name: "Pinned", category: [art], month: 1, year: 2021, desc: "", gallery: pinned, folder: "pinned", thumb:""},
 				{name: "Poetry Book Illustrations", category: [art], month: 12, year: 2019, desc: "A series of illustrations of existing poems for a semester-long project in 2D Tools.", gallery: poetryBook, folder: "poetryBook", thumb:""},
 				{name: "Switchin'", category: [games, art], month: 12, year: 2020, desc: "A prototype of a 2d platformer created as a final project for Foundations of Games.", gallery: switchin, folder: "switchin", thumb:"0.jpg"},
-				{name: "Crunch", category: [design], month: 12, year: 2020, desc: "A prototype of an online calendar with a focus on displaying deadlines and customizing its appearance. Created as a semester-long project for Interaction Design I.", gallery: crunch, folder: "crunch", thumb: "00.jpg"},
+				{name: "Crunch", category: [design], month: 12, year: 2020, desc: "A prototype of an online calendar with a focus on displaying deadlines and customizing its appearance. Created as a semester-long project for Interaction Design I. The desktop prototype can be viewed <a href=\"https://www.figma.com/proto/nDAXIeLO4bgWjDLkgLrhRG/Crunch?page-id=322%3A10633&node-id=322%3A12529&viewport=389%2C275%2C0.0847831591963768&scaling=min-zoom&starting-point-node-id=322%3A12529\">here</a>, and the mobile prototype can be viewed <a href=\"https://www.figma.com/proto/nDAXIeLO4bgWjDLkgLrhRG/Crunch?page-id=322%3A15909&node-id=322%3A15910&viewport=437%2C374%2C0.22920119762420654&scaling=scale-down&starting-point-node-id=322%3A15910\">here</a>.", gallery: crunch, folder: "crunch", thumb: "00.jpg"},
 				{name: "Dress Up Game", category: [code, games], month: 5, year: 2020, desc: "An online dress up game created as a final project for Programming Basics. It can be played <a href=\"https://allisonzca.github.io/dressUpGame/game.html\">here</a>.", gallery: dressUp, folder: "dressUp", thumb:"0.jpg"},
 				{name: "Reflection", category: [art], month: 3, year: 2021, desc: "", gallery: reflection, folder: "reflection", thumb:""},
-				{name: "Eduo", category: [design, code], month: 8, year: 2019, desc: "An educational web game where 2 players are randomly matched to solve math problems. Created in 24 hours in a team of 4 for AngelHacks 2019. Qualified for semifinals.", gallery: eduo, folder: "eduo", thumb:"0.jpg"}];
+				{name: "Eduo", category: [design, code], month: 8, year: 2019, desc: "An educational web game where 2 players are randomly matched to solve math problems. Created in 24 hours in a team of 4 for AngelHacks 2019. Qualified for semifinals. It can be played <a href=\"http://eduo.herokuapp.com/\">here</a>.", gallery: eduo, folder: "eduo", thumb:"0.jpg"},
+
+				{name: "This website", category: [code, design], month: 7, year: 2021, desc: "A website I created to showcase my projects across disciplines. Prototyped in Figma, coded using javascript and d3.js.", gallery: thisSite, folder: "thisSite", thumb:""}
+				];
 
 function compareDates(a, b) {
 	var aYear = a.year;
@@ -125,3 +132,34 @@ function compareDates(a, b) {
 
 projects.sort(compareDates);
 
+
+var head = "1";
+var waist = "2";
+var thigh = "3";
+var full = "4";
+var illust = "";
+
+var sketch = "a";
+var line = "b";
+var color = "b";
+
+var standList = [{type: head, finish: line, url: "1.png", xstart: 1, xend:2, ystart: 1, yend:3},
+	{type: full, finish: sketch, url: "2.jpg",  xstart: 2, xend:4, ystart: 1, yend:2},
+	{type: waist, finish: line, url: "3.png",  xstart: 2, xend:3, ystart: 2, yend:3},
+	{type: waist, finish: sketch, url: "4.jpg",  xstart: 3, xend:4, ystart: 2, yend:3}
+	];
+
+line = "a";
+full = "2";
+
+var chibiList = [{type: head, finish: color, url: "1.jpg",  xstart: 1, xend:2, ystart: 1, yend:2},
+	{type: head, finish: color, url: "2.jpg",  xstart: 2, xend:3, ystart: 1, yend:2},
+	{type: full, finish: color, url: "3.jpg",  xstart: 1, xend:3, ystart: 2, yend:3}
+	];
+
+line = "b";
+
+var illustList = [{type: illust, finish: line, url: "4.jpg", xstart: 1, xend:2, ystart: 1, yend:3},
+	{type: illust, finish: sketch, url: "2.jpg", xstart: 2, xend:4, ystart: 1, yend:2},
+	{type: illust, finish: line, url: "3.jpg", xstart: 2, xend:3, ystart: 2, yend:3},
+	{type: illust, finish: sketch, url: "1.jpg", xstart: 3, xend:4, ystart: 2, yend:3}];

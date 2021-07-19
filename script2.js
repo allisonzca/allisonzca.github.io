@@ -727,6 +727,7 @@ function toggleAnimation() {
 				.attr("cy", yPos)
 				.attr("r", 0)
 				.style("stroke", "white")
+				.style("fill", "none")
 				.attr("opacity", Math.random() * 0.75)
 				.transition()
 					.duration(1700)
@@ -800,6 +801,144 @@ toggleAnimation();
 
 // fade out -----------------------------------------------------
 
+var standBox = document.getElementById("standardSamples");
+var chibiBox = document.getElementById("chibiSamples");
+var illustBox = document.getElementById("illustSamples");
 
 
+
+/*
+for (var i = 0; i < standList.length; i++) {
+	var sampleWrap = document.createElement("div");
+	sampleWrap.classList.add("sampleWrap");
+	var sampleDesc = document.createElement("div");
+	sampleDesc.classList.add("sampleDesc");
+	var sampleDescText = document.createElement("h4");
+	sampleDescText.innerHTML = standList[i].type + standList[i].finish;
+	sampleWrap.style.backgroundImage = "url(\'photos/samples/standard/" + standList[i].url + "\')";
+	sampleDesc.appendChild(sampleDescText);
+	sampleWrap.appendChild(sampleDesc);
+
+
+
+	/*
+	sampleWrap.style.gridColumn = count + " / span " +  standList[i].span;
+	sampleWrap.style.gridRow = currentRow + " / span " +  standList[i].height;
+	
+	sampleWrap.style.height = 200 * standList[i].height + "px";
+
+
+
+	sampleWrap.style.gridArea = standList[i].ystart + "/" + standList[i].xstart + "/" + standList[i].yend + "/" + standList[i].xend;
+	if (width > 640 && (standList[i].yend - standList[i].ystart > 1)) {
+		sampleWrap.style.height = 200 * (standList[i].yend - standList[i].ystart) + "px";
+	} else if (standList[i].yend - standList[i].ystart > 1) {
+		sampleWrap.style.height = 120 * (standList[i].yend - standList[i].ystart) + "px";
+	}
+	
+	standBox.appendChild(sampleWrap);
+}
+
+
+for (var i = 0; i < chibiList.length; i++) {
+	var sampleWrap = document.createElement("div");
+	sampleWrap.classList.add("sampleWrap");
+	var sampleDesc = document.createElement("div");
+	sampleDesc.classList.add("sampleDesc");
+	var sampleDescText = document.createElement("h4");
+	sampleDescText.innerHTML = chibiList[i].type + chibiList[i].finish;
+	sampleWrap.style.backgroundImage = "url(\'photos/samples/chibi/" + chibiList[i].url + "\')";
+	sampleDesc.appendChild(sampleDescText);
+	sampleWrap.appendChild(sampleDesc);
+
+	
+	//sampleWrap.style.gridColumn = count + " / span " +  chibiList[i].span;
+	if (width > 640 && (chibiList[i].yend - chibiList[i].ystart > 1)) {
+		sampleWrap.style.height = 200 * (chibiList[i].yend - chibiList[i].ystart) + "px";
+	} else if (chibiList[i].yend - chibiList[i].ystart > 1) {
+		sampleWrap.style.height = 120 * (chibiList[i].yend - chibiList[i].ystart) + "px";
+	}
+
+	chibiBox.appendChild(sampleWrap);
+
+	/*
+	count = (count + chibiList[i].span);
+	if (count >= 3) {
+		count = 1;
+	}
+}
+
+
+for (var i = 0; i < illustList.length; i++) {
+	var sampleWrap = document.createElement("div");
+	sampleWrap.classList.add("sampleWrap");
+	var sampleDesc = document.createElement("div");
+	sampleDesc.classList.add("sampleDesc");
+	var sampleDescText = document.createElement("h4");
+	sampleDescText.innerHTML = illustList[i].type + illustList[i].finish;
+	sampleWrap.style.backgroundImage = "url(\'photos/samples/illust/" + illustList[i].url + "\')";
+	sampleDesc.appendChild(sampleDescText);
+	sampleWrap.appendChild(sampleDesc);
+
+	
+	//sampleWrap.style.gridColumn = count + " / span " +  illustList[i].span;
+
+
+	sampleWrap.style.gridArea = illustList[i].ystart + "/" + illustList[i].xstart + "/" + illustList[i].yend + "/" + illustList[i].xend;
+	if (width > 640 && (illustList[i].yend - illustList[i].ystart > 1)) {
+		sampleWrap.style.height = 200 * (illustList[i].yend - illustList[i].ystart) + "px";
+	} else if (illustList[i].yend - illustList[i].ystart > 1) {
+		sampleWrap.style.height = 120 * (illustList[i].yend - illustList[i].ystart) + "px";
+	}
+	illustBox.appendChild(sampleWrap);
+
+	/*
+	count = (count + illustList[i].span);
+	if (count >= 3) {
+		count = 1;
+	}
+}*/
+
+function openModal(item) {
+	var modal = document.getElementById("modal");
+	var modalBox = document.getElementById("modalBox");
+	var modalImg = document.createElement("img");
+	modalImg.src = item;
+	modalBox.appendChild(modalImg);
+	fadeIn(modal);
+
+	$("body").css("overflow", "hidden");
+
+	modal.addEventListener("click", function() { fadeOut(modal); modalBox.innerHTML = ""; $("body").css("overflow", "auto");});
+	console.log("opened");
+}
+
+function generateSamples(sampleList, folder, location) {
+	for (var i = 0; i < sampleList.length; i++) {
+		var sampleWrap = document.createElement("div");
+		sampleWrap.classList.add("sampleWrap");
+		var sampleDesc = document.createElement("div");
+		sampleDesc.classList.add("sampleDesc");
+		var sampleDescText = document.createElement("h4");
+		sampleDescText.innerHTML = sampleList[i].type + sampleList[i].finish;
+		sampleWrap.style.backgroundImage = "url(\'photos/samples/" + folder + "/" + sampleList[i].url + "\')";
+		sampleDesc.appendChild(sampleDescText);
+		sampleWrap.appendChild(sampleDesc);
+
+		sampleWrap.style.gridArea = sampleList[i].ystart + "/" + sampleList[i].xstart + "/" + sampleList[i].yend + "/" + sampleList[i].xend;
+		if (width > 640 && (sampleList[i].yend - sampleList[i].ystart > 1)) {
+			sampleWrap.style.height = 200 * (sampleList[i].yend - sampleList[i].ystart) + "px";
+		} else if (sampleList[i].yend - sampleList[i].ystart > 1) {
+			sampleWrap.style.height = 120 * (sampleList[i].yend - sampleList[i].ystart) + "px";
+		}
+		location.appendChild(sampleWrap);
+
+		sampleWrap.addEventListener("click", openModal.bind(this, "photos/samples/" + folder + "/" + sampleList[i].url));
+		//sampleWrap.addEventListener("click", function() { openModal("photos/samples/" + folder + "/" + sampleList[i].url); });
+	}
+}
+
+generateSamples(standList, "standard", standBox);
+generateSamples(chibiList, "chibi", chibiBox);
+generateSamples(illustList, "illust", illustBox);
 

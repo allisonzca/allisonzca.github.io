@@ -112,6 +112,41 @@ nav span {
 		}
 
 
+	.sampleDesc {
+		opacity: 0;
+		background-color: var(--secondary);
+		transition: 0.3s;
+		height: 100%;
+		text-align: center;
+		position: relative;
+	}
+
+
+	.sampleDesc h4 {
+    	display: block;
+    	background: none;
+    	padding: 0px;
+    	border-bottom-right-radius: 0px;
+	}
+
+	.sampleDesc h4 {
+		top: 50%;
+	    position: absolute;
+	    /* text-align: center; */
+	    /* width: 100%; */
+	    /* height: 10%; */
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	}
+
+	.sampleDesc:hover {
+		opacity: 1;
+		transition: 0.3s;
+	}
+
+
+
+
 	#navLinks {
 		text-align: left;
 	  	margin: 0px;
@@ -196,6 +231,23 @@ nav span {
 	.imageCaption {
 		padding: 20px;
 	}
+
+	.sampleWrap {
+		height: 200px;
+
+	    background-repeat: no-repeat;
+	    background-position: center;
+	}
+
+	#modalBox img {
+		width: auto;
+		height: 100%;
+		position: relative;
+
+}
+	}
+
+
 
 }
 
