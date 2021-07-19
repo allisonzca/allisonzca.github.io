@@ -71,7 +71,8 @@ var crunch = [{label: "1"},
 
 var dressUp = [];
 
-var eduo = ["1", "2"];
+var eduo = [{label: "1"}, 
+	{label: "2"}];
 
 
 var thisSite = [{label: "1"}, 
