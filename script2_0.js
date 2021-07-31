@@ -151,8 +151,7 @@ function confirmCat() {
 
 hamburger.addEventListener("click", toggleHamburger);
 document.getElementById("aboutLink").addEventListener("click", toggleAbout);
-
-//document.getElementById("commissionLink").addEventListener("click", toggleComms);
+document.getElementById("commissionLink").addEventListener("click", toggleComms);
 
 var hamOpen = false;
 function toggleHamburger() {
@@ -487,7 +486,7 @@ function toggleAbout() {
 		
 	} else {
 		document.getElementById("aboutLink").removeEventListener("click", toggleAbout);
-		//document.getElementById("commissionLink").addEventListener("click", toggleComms);
+		document.getElementById("commissionLink").addEventListener("click", toggleComms);
 
 		if (width < 640) {
 			menu.classList.add("hidden");
@@ -503,7 +502,7 @@ function toggleAbout() {
 		currentPage = "about";
 
 		document.getElementById("homeLink").classList.remove("selectedPage");
-		//document.getElementById("commissionLink").classList.remove("selectedPage");
+		document.getElementById("commissionLink").classList.remove("selectedPage");
 		document.getElementById("aboutLink").classList.add("selectedPage");
 	}
 
@@ -530,11 +529,11 @@ function toggleComms() {
 
 
 	if (!commPage.classList.contains("hidden")) {
-		//document.getElementById("commissionLink").addEventListener("click", toggleComms);
+		document.getElementById("commissionLink").addEventListener("click", toggleComms);
 		fadeOut(commPage);
 
 	} else {
-		//document.getElementById("commissionLink").removeEventListener("click", toggleComms);
+		document.getElementById("commissionLink").removeEventListener("click", toggleComms);
 		document.getElementById("aboutLink").addEventListener("click", toggleAbout);
 
 
@@ -555,7 +554,7 @@ function toggleComms() {
 
 		
 		document.getElementById("homeLink").classList.remove("selectedPage");
-		//document.getElementById("commissionLink").classList.add("selectedPage");
+		document.getElementById("commissionLink").classList.add("selectedPage");
 		document.getElementById("aboutLink").classList.remove("selectedPage");
 	}
 
@@ -602,7 +601,7 @@ function toggleGallery() {
 		//fadeIn(navList);
 		currentPage = "gallery";
 		document.getElementById("homeLink").classList.add("selectedPage");
-		//document.getElementById("commissionLink").classList.remove("selectedPage");
+		document.getElementById("commissionLink").classList.remove("selectedPage");
 		document.getElementById("aboutLink").classList.remove("selectedPage");
 
 
@@ -611,7 +610,7 @@ function toggleGallery() {
 
 	
 	document.getElementById("aboutLink").addEventListener("click", toggleAbout);
-	//document.getElementById("commissionLink").addEventListener("click", toggleComms);
+	document.getElementById("commissionLink").addEventListener("click", toggleComms);
 	
 }
 
