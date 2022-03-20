@@ -72,6 +72,7 @@ nav span {
 
 	#main {
 	    grid-column: 2 / span 1;
+	    display: block !important;
 	}
 
 	#profile {
@@ -358,12 +359,13 @@ nav span {
 	}
 
 	#navLinks {
-		display: block; /*important!*/
+		/*display: none; /*important!*/
 		float:  none;
 	}
 
 	main {
 		float: none;
+		display: block !important;
 	}
 
 	nav {
@@ -463,11 +465,12 @@ nav span {
 	}
 
 	#navLinks {
-		display: block ; /*!important*/
+		/*display: none ; /*!important*/
 	}
 
 	main {
 		float: none;
+		display: block !important;;
 	}
 
 	nav {
